@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Ant_builder" default="echo">
+	<target name="echo" >
+		<echo > call other build</echo>
+		<mkdir dir="dirn"/>
+	</target>
+</project>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<!-- build.xml A test Ant script to demonstrate how to conditionally run Ant tasks depending on the operating system (OS) 
+the Ant build script is currently running on. Tests for Mac, Windows, or Unix systems. Created by Alvin Alexander, 
+http://alvinalexander.com --> <project default="GO" name="Ant Operating System Conditional Test" > <!-- first create our properties --> 
+<condition property="isMac"> <os family="mac" /> </condition> <condition property="isWindows"> <os family="windows" /> 
+</condition> <condition property="isUnix"> <os family="unix" /> </condition> <!-- now create our operating system specific targets --> 
+<target name="doMac" if="isMac"> <echo message="Came into the Mac target" /> <!-- do whatever you want to do here for Mac systems -->
+ </target> <target name="doWindows" if="isWindows"> <echo message="Came into the Windows target" /> </target> <target name="doUnix" if="isUnix"> 
+ <echo message="Came into the Unix target" /> </target> <!-- run everything from our main target --> <!-- the other targets will only be run when their properties are true --> <target name="GO" depends="doMac, doWindows, doUnix"> <echo message="Running GO target" /> <echo message="os.name = ${os.name}" /> <echo message="os.arch = ${os.arch}" /> <echo message="os.version = ${os.version}" /> </target> </project>

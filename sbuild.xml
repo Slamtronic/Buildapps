@@ -1,0 +1,47 @@
+<project name="FileCheckExample" default="start-file" basedir=".">
+    <property name="output.file" value="build/build.xml" />
+     
+    
+	
+       
+		<condition property="fists" 
+		value="existensze" else="NOexgyiop"
+		>
+            <available file="${output.file}" />
+			
+			
+        </condition>
+        <condition property="nfists" 
+		
+		>
+		<not>
+            <available file="${output.file}" />
+			
+			</not>
+        </condition>
+   
+
+
+	<target name="if_file_not_ext" if="nfists" >
+	 <touch file="${output.file}" />
+
+        <!-- Write default data to the file -->
+        <echo file="${output.file}" append="false">
+            This is the default data that will be written to the file.
+        </echo>
+	
+	<echo message="file created then uploaded" />
+	</target>
+	<target  
+	name="start-file" depends="mkdir,if_file_not_ext">
+	 <echo message="${fists}" />
+	</target>
+	
+	<target  name="mkdir">
+	 <mkdir dir="build"/>
+	</target>
+	
+</project>
+
+
+

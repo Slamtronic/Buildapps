@@ -1,0 +1,185 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+
+<!--
+<project default="test">
+ <target name="test">
+
+ </target>
+</project>
+-->
+
+
+<!--
+<project default="test">
+ <target name="test">
+  <echo message= "helo wordd"/>
+  <mkdir dir="hajouja"/>
+ </target>
+</project>    -->
+
+<!--
+<project default="define target  from cmd">
+ <target name="tar1">   
+
+<echo> from cmd can excuted : ...>ant tar1</echo>
+ </target>
+ 
+  <target name="tar2">  
+<echo> from cmd can excuted : ...>ant tar2</echo>
+ </target>
+</project>   -->
+
+<!--project default="kopysinglefile">
+ <target name="kopysinglefile">
+  <echo message= "coping....."/>
+  <copy file= "xmpl.xml" tofile="kapy.xml"/>
+ </target>
+</project--> 
+
+ <!--project default="kopyfiletodir">
+ <target name="kopyfiletodir">
+  <echo message= "coping....."/>
+  <copy file= "xmpl.xml" todir="h:/test1/falossa"/>
+ </target>
+</project-->  
+
+<!--project basedir="./hajoja" default="test">
+ <target name="test">
+<echo> base dir is the in src locted in the
+same as where is build.xml</echo>
+ </target>
+</project-->
+
+<!--project basedir="." default="property_TASK">
+<echo> DECLARATIONS.....</echo>
+
+<property file="buill.proties"/>
+<echo> FAMOUS EXTENTION IS .properties</echo>
+<property name ="key1" value="somval1"/>
+<property name ="key2" value="somval2"/>
+<fileset id="XML_files" dir="." includes="*.xml"/>
+<echo> includes=include only
+       excludes=exclude only
+       *.ext files. in this dir
+       **/*.ext files in dir & subdir....</echo>
+ <target name="property_TASK">
+
+ <echo> operating sys = ${os.name}
+ START ${toString:XML_files} .....</echo>
+ <echo message="${key1} then  ${nam1} ${key1} then  ${nam2}"/>
+ </target>
+</project-->
+
+<!--project basedir="." default="default" name="javaDOC">
+<echo>from:karpado youtube channel </echo>
+<record name="build.log" loglevel="verbose" append="false"/>
+<property name ="source.dir" value="./scr"/>
+<property name ="doc.dir" value="./buildfiles"/>
+
+ <target name="default">
+ 
+ <delete dir="${doc.dir}"/>
+ 
+ <javadoc sourcepath ="${source.dir}" destdir ="${doc.dir}">
+ <fileset dir="."/>
+ <doctitle>
+      <![CDATA[<h1>Test..</h1>]]>
+ </doctitle>
+<bottom>
+<![CDATA[<i>any thing hhj...</i>]]>
+</bottom>
+</javadoc>
+ </target>
+</project-->
+
+
+<!--
+<project name="FileCheckExample" default="start-file" basedir=".">
+    <property name="output.file" value="build/build.xml" />
+     
+    <condition property="fists" 
+		value="existensze" else="NOexgyiop">
+            
+			<available file="${output.file}" />
+		</condition>
+      
+	<condition property="nfists" 
+		
+		>
+		<not>
+            <available file="${output.file}" />
+			
+			</not>
+        </condition>
+   
+
+
+	<target name="if_file_not_ext" if="nfists" >
+	 <touch file="${output.file}" />
+
+        < echo message="Write default data to the file"/ >
+        <echo file="${output.file}" append="false">
+            This is the default data that will be written to the file.
+        </echo>
+	
+	<echo message="file created then uploaded" />
+	</target>
+	<target  
+	name="start-file" depends="mkdir,if_file_not_ext">
+	 <echo message="${fists}" />
+	</target>
+	
+	<target  name="mkdir">
+	 <mkdir dir="build"/>
+	</target>
+	
+</project>
+
+-->
+
+
+
+
+
+
+<project name="javaprog" default="dist">
+
+ <target name="clean">
+ <delete dir="build/classes"/><delete dir="build/jar"/>
+ <delete dir="build/web"/>
+ </target>
+ 
+ <target name="init" depends="clean">
+ <mkdir dir="build/classes"/><mkdir dir="build/jar"/>
+ <mkdir dir="build/web"/>
+ </target>
+ 
+ <target name="compile" depends="init">
+ <javac srcdir="src" destdir="build/classes"  
+ includeantruntime="false"/>
+ </target>
+ 
+ <target name="jar" depends="compile">
+ <jar destfile="build/jar/app1-1-1.jar" 
+ basedir="build/classes"/>
+ </target>
+ 
+
+ <target name="copywebs" >
+ <copy todir="build/web"> <fileset dir="web"/>
+ </copy>
+ </target>
+
+ <target name="dist" depends="jar,copywebs">
+ <zip destfile ="dist/app1-1-1.zip">
+ <fileset dir="build/jar"/><fileset dir="build/web"/>
+ </zip>
+ </target>
+ 
+</project>
+
+
+
+
+
+
