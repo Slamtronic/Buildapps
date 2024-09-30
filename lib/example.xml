@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Parent 
+name="JavaFXn" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
+
+
+<prog parp="$$$$">
+    <tar1 par1="344@3">  
+        <chldren>
+		<tor par1="34g@3"/>
+		</chldren>
+    </tar1> 
+    <tar2>
+	     <chldren2>
+		<tor par1="34hg@3"/>
+		</chldren2>
+	</tar2>
+    <tar3 par1="344@3">  
+        <chldren>
+		<tor par1="34g@3"/>
+		</chldren>
+    </tar3> 
+    <tar4>
+	     <chldren2>
+		<tor par1="34hg@3"/>
+		</chldren2>
+	</tar4>	
+</prog>
+</Parent>
+
