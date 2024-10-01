@@ -1,0 +1,5 @@
+javac -d bino Jacon.java
+java -cp bino pac.Jacon
+jar tf colclass.jar
+jar xf colclass.jar
+java -jar colclass.jar
