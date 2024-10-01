@@ -1,0 +1,20 @@
+
+this will collecte all .class locate in bin in root and putem in 
+colclass.jar file
+
+cd/d Z:\OKprj\classcollector
+
+javac -d bino ClassCol.java
+
+
+
+java -cp bino col.ClassCol
+//JAR file created successfully: runnablejar.jar
+
+jar tf colclass.jar
+
+pac/Called1.class
+pac/par/Called2.class
+pak/Caller.class
+
+java -cp colclass.jar pak.Caller
